@@ -91,7 +91,7 @@ app.get('/token', async (req, res) => {
 app.get('/todos', (req, res) => {
     const todos = ["task1", "task2", "task3"];
     const adminTodos = ["adminTask1", "admiTask2", "adminTask3"];
-    const isAdmin = JSON.parse(Buffer.from(req?.signedCookies?.ACCESS_TOKEN?.split('.')[1], 'base64').toString('utf8'))['cognito:groups'].includes('Admin');
+    const isAdmin = JSON.parse(Buffer.from(req?.signedCookies?.ACCESS_TOKEN?.split('.')[1], 'base64')?.toString('utf8'))['cognito:groups']?.includes('Admin');
     res.send(isAdmin ? adminTodos : todos)
 })
 
