@@ -1,6 +1,6 @@
 # CognitoCourse
 
-# CognitoCourse USERPOOL APIs
+# USER POOL APIs
 
 # 1. To get OAuth Tokens using token endpoint
 
@@ -67,4 +67,4 @@ curl --location --request POST 'https://cognito-idp.ap-south-1.amazonaws.com/' \
 ```
 
 
-# CognitoCourse IDPOOL APIs
+# ID  POOL APIs
