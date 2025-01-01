@@ -121,14 +121,13 @@ curl -X POST https://cognito-identity.ap-south-1.amazonaws.com/ \
 ```
 
 # 3. ID Pool with Google as identity provider
-a)  Create Google OAuth cient and use client ID to create Google as identity provider.
-b)  Use link to get authorization_code from Google https://accounts.google.com/o/oauth2/v2/auth?client_id=<enter-client-id-here>&redirect_uri=<enter-callback-url-here>&response_type=code&scope=openid 
-c)  Use authorization_code to get ID Token from Google:-
+*  Create Google OAuth cient and use client ID to create Google as identity provider.
+*  Use link to get authorization_code from Google https://accounts.google.com/o/oauth2/v2/auth?client_id=<enter-client-id-here>&redirect_uri=<enter-callback-url-here>&response_type=code&scope=openid 
+*  Use authorization_code to get ID Token from Google:-
 ```
 curl --location --request POST 'https://oauth2.googleapis.com/token?code=<enter-authorization_code-here>&grant_type=authorization_code&redirect_uri=<enter-callback-url-here>&client_id=<enter-client-id-here>&client_secret=<enter-client-secret-here>'
 ```
-
-d) Use ID Token from Google to create ID in Identity Pool and to get IAM credentials
+* Use ID Token from Google to create ID in Identity Pool and to get IAM credentials
 ```
 curl -X POST https://cognito-identity.ap-south-1.amazonaws.com/ \
 -H "Content-Type: application/x-amz-json-1.1" \
@@ -153,6 +152,7 @@ curl -X POST https://cognito-identity.ap-south-1.amazonaws.com/ \
 ```
 
 # Medium Articles:-
-Cognito userpool integration with Google:- https://awskarthik82.medium.com/how-to-integrate-aws-cognito-with-google-social-login-fd379ff644cc
-Cognito identitypool integration with Google:- https://medium.com/@shivkaundal/integrating-google-as-an-identity-provider-with-aws-cognito-identity-pools-a-step-by-step-guide-81fed5b3fb3c
+* Cognito userpool integration with Google:- https://awskarthik82.medium.com/how-to-integrate-aws-cognito-with-google-social-login-fd379ff644cc
+
+* Cognito identitypool integration with Google:- https://medium.com/@shivkaundal/integrating-google-as-an-identity-provider-with-aws-cognito-identity-pools-a-step-by-step-guide-81fed5b3fb3c
 
