@@ -31,6 +31,20 @@ curl --location --request POST 'https://cognito-idp.ap-south-1.amazonaws.com/' \
 }'
 ```
 
+To change password  if user is logging in first time:-
+```
+curl --location --request POST 'https://cognito-idp.ap-south-1.amazonaws.com/' \
+--header 'X-Amz-Target: AWSCognitoIdentityProviderService.RespondToAuthChallenge' \
+--header 'Content-Type: application/x-amz-json-1.1' \
+--data-raw '{
+    "ChallengeName": "NEW_PASSWORD_REQUIRED",
+    "ClientId": ".....",
+    "ChallengeResponses": {"NEW_PASSWORD": ".....", "USERNAME": "...."},
+      "Session": "..."
+
+}'
+```
+
 
 # 3. API to Initiate Auth "USER_AUTH"
 ```
