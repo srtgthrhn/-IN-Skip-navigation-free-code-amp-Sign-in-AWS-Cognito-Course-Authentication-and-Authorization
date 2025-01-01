@@ -29,8 +29,14 @@ const getId = async (idToken) => {
 
 
 const getIAMCreds = async (idToken) => {
-    console.log("downloading IAM creds");
     const identityId = localStorage.getItem("identityId") || getId(idToken || false);
+
+    const session = JSON.parse(sessionStorage.getItem(identityId));
+    if (session && session.exp > Date.now()) {
+        console.log("IAM Creds  still valid");
+        return session.credentials
+    }
+    console.log("downloading IAM creds");
     const input = {
         IdentityId: identityId,
         ...(idToken && {
@@ -43,11 +49,15 @@ const getIAMCreds = async (idToken) => {
     const response = await cognitoClient.send(command);
     console.log("downloaded IAM creds");
     console.log(response);
-    return {
+
+    const credentials = {
         accessKeyId: response.Credentials.AccessKeyId,
         secretAccessKey: response.Credentials.SecretKey,
         sessionToken: response.Credentials.SessionToken,
     }
+
+    sessionStorage.setItem(identityId, JSON.stringify({ credentials, exp: (new Date(response?.Credentials?.Expiration)).getTime() }));
+    return credentials;
 }
 
 const getFileFromS3 = async (key, idToken) => {
