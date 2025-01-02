@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useAuth } from "react-oidc-context";
 import { useNavigate } from "react-router";
-import { getFileFromS3, getIAMCreds, getId } from './utils/utils';
+import { getId } from './utils/utils';
 
 const Auth = () => {
     const { isAuthenticated, user } = useAuth();
