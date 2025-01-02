@@ -158,8 +158,6 @@ URL:- https://console.cloud.google.com/auth
 
 * Cognito identitypool integration with Google:- https://medium.com/@shivkaundal/integrating-google-as-an-identity-provider-with-aws-cognito-identity-pools-a-step-by-step-guide-81fed5b3fb3c
 
-https://console.cloud.google.com/auth
-
 ---------------------------------------------------------------------------------------------------------------------
 # ShareMyFile WebApp Architecture
 ![Alt text](./ShareMyFile-WebApp-Architecture.png)
