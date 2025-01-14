@@ -68,7 +68,6 @@ function App() {
         </div>
         <div>
           <button onClick={() => { getFileFromS3(`${btoa(email)}${secret?.split("-")[0]}.${secret?.split("-")[1]}`) }}>
-            {/* <button onClick={() => { getFileFromS3("test-file.txt", user?.id_token || null) }}> */}
             Download
           </button>
         </div>

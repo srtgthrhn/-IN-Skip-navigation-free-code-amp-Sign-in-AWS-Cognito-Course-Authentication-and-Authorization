@@ -29,7 +29,7 @@ const getId = async (idToken) => {
 
 
 const getIAMCreds = async (idToken) => {
-    const identityId = localStorage.getItem("identityId") || getId(idToken || false);
+    const identityId = localStorage.getItem("identityId") || await getId(idToken || false);
 
     const session = JSON.parse(sessionStorage.getItem(identityId));
     if (session && session.exp > Date.now()) {
