@@ -92,7 +92,7 @@ const getFileFromS3 = async (key, idToken) => {
 }
 
 const putFileToS3 = async (file, fileName, idToken) => {
-    const config = { region: import.meta.env.VITE_AWS_REGION }
+    const config = { region: import.meta.env.VITE_AWS_REGION, requestChecksumCalculation: "WHEN_REQUIRED" }
     config.credentials = await getIAMCreds(idToken);
     const s3Client = new S3Client(config);
     const input = {
