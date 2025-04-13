@@ -24,7 +24,7 @@ curl --location --request POST 'https://cognito-idp.ap-south-1.amazonaws.com/' \
 }'
 ```
 
-![AWS Cognito Authenticator App MFA Setup](https://github.com/user-attachments/assets/e62eb73c-3868-43c3-ac4c-6d643a7fe090)
+![AWS Cognito Authenticator App MFA Setup](https://github.com/user-attachments/assets/5c23d78b-d5fa-4422-8416-5750514e4473)
 
 
 
